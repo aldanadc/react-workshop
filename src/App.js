@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import Nav from "./components/Nav"
+import Tarjeta from "./components/Tarjeta"
+import productsInfo from "./productsInfo";
 
 function App() {
+
+  console.log(productsInfo);
+
+  const pais = "Argentina";
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <main className="container">
+        {productsInfo.map(product => (
+          <Tarjeta 
+          key={Math.random() * 1000}
+          product={product}
+          pais={pais}
+          
+          />
+        ))}
+      </main>
     </div>
   );
 }
